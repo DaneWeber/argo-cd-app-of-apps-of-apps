@@ -1,0 +1,69 @@
+# Default configuration values for the Argo CD App-of-Apps Helm chart
+
+root:
+  name: root-application
+  namespace: platform-gitops
+  project: default
+  source:
+    repoURL: https://github.com/example/app-of-apps-of-apps
+    targetRevision: HEAD
+    path: charts/root-application
+
+projects:
+  - name: collab-board
+    repoURL: https://github.com/example/collab-board-manifests
+    clusters:
+      - name: devtest-east
+        namespace: collab-board-gitops-devtest-east
+        autoSync: true
+        targetRevision: main
+      - name: devtest-west
+        namespace: collab-board-gitops-devtest-west
+        autoSync: true
+        targetRevision: main
+      - name: prod-east
+        namespace: collab-board-gitops-prod-east
+        autoSync: false
+        targetRevision: main
+      - name: prod-west
+        namespace: collab-board-gitops-prod-west
+        autoSync: false
+        targetRevision: main
+  - name: messaging
+    repoURL: https://github.com/example/messaging-manifests
+    clusters:
+      - name: devtest-east
+        namespace: messaging-gitops-devtest-east
+        autoSync: true
+        targetRevision: main
+      - name: devtest-west
+        namespace: messaging-gitops-devtest-west
+        autoSync: true
+        targetRevision: main
+      - name: prod-east
+        namespace: messaging-gitops-prod-east
+        autoSync: false
+        targetRevision: main
+      - name: prod-west
+        namespace: messaging-gitops-prod-west
+        autoSync: false
+        targetRevision: main
+  - name: case-management
+    repoURL: https://github.com/example/case-management-manifests
+    clusters:
+      - name: devtest-east
+        namespace: case-management-gitops-devtest-east
+        autoSync: true
+        targetRevision: main
+      - name: devtest-west
+        namespace: case-management-gitops-devtest-west
+        autoSync: true
+        targetRevision: main
+      - name: prod-east
+        namespace: case-management-gitops-prod-east
+        autoSync: false
+        targetRevision: main
+      - name: prod-west
+        namespace: case-management-gitops-prod-west
+        autoSync: false
+        targetRevision: main
