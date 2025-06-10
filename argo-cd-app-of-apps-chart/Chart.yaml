@@ -1,0 +1,14 @@
+name: argo-cd-app-of-apps-chart
+version: 0.1.0
+description: A Helm chart to manage Argo CD Applications using the app-of-apps pattern.
+maintainers:
+  - name: Your Name
+    email: your.email@example.com
+keywords:
+  - argo-cd
+  - gitops
+  - helm
+  - applications
+sources:
+  - https://github.com/your-repo/argo-cd-app-of-apps-chart
+license: Apache-2.0
