@@ -6,7 +6,10 @@ on:
       - main
     paths:
       - 'argo-cd-app-of-apps-chart/**'
-  pull_request:
+
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   render:
@@ -27,6 +30,7 @@ jobs:
             --output-dir argo-cd-rendered-manifests
 
       - name: Create Pull Request for rendered manifests
+        if: github.event_name == 'push'
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Update rendered Argo CD manifests"
