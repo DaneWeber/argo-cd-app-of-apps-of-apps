@@ -27,8 +27,11 @@ jobs:
           chmod +x /usr/local/bin/yq
 
       - name: Validate with yq
+        env:
+          HELM_TEMPLATES_TO_IGNORE: ./chart/templates
         run: |
-          find . \( -name '*.yaml' -o -name '*.yml' \) | while read -r file; do
+          find . \( -name '*.yaml' -o -name '*.yml' \) \
+            ! -path "${HELM_TEMPLATES_TO_IGNORE}/*" | while read -r file; do
             echo "::group::yq eval $file"
             yq eval "$file"
             echo "::endgroup::"
