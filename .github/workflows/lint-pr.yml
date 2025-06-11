@@ -2,8 +2,7 @@ name: Lint and Validate Helm Chart
 
 on:
   pull_request:
-    paths:
-      - 'chart/**'
+    types: [synchronize, opened, reopened] 
 
 jobs:
   lint:
