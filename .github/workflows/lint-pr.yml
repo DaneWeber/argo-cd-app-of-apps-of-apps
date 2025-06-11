@@ -23,13 +23,13 @@ jobs:
           wget https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -O /usr/local/bin/yq
           chmod +x /usr/local/bin/yq
 
-      - name: Validate Chart.yaml
+      - name: Validate with yq
         run: |
-          yq eval '.' ./chart/Chart.yaml
+          find . -name '*.yaml' -o -name '*.yml' -exec yq eval {} +
 
-      - name: Check for valid YAML in templates
+      - name: Lint with yamllint
         run: |
-          find ./chart/templates -name '*.yaml' -exec yamllint {} +
+          find . -name '*.yaml' -o -name '*.yml' -exec yamllint {} +
 
       - name: Lint Helm chart
         run: helm lint ./chart
