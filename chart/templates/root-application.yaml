@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -6,7 +7,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/your-repo.git'
+    repoURL: >
+      https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/your-repo.git
     targetRevision: HEAD
     path: charts/platform-gitops
   destination:
