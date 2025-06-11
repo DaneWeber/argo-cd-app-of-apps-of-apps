@@ -32,8 +32,8 @@ jobs:
 
       - name: Lint with yamllint
         run: |
-          yamllint --list-files .
           yamllint .
+          yamllint --list-files .
 
       - name: Lint Helm chart
         run: helm lint ./chart
