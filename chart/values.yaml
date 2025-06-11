@@ -5,9 +5,9 @@ root:
   namespace: platform-gitops
   project: default
   source:
-    repoURL: https://github.com/example/app-of-apps-of-apps
+    repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: HEAD
-    path: charts/root-application
+    path: chart/root-application
 
 projects:
   - name: collab-board

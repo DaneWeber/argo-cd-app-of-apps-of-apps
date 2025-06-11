@@ -10,5 +10,5 @@ keywords:
   - helm
   - applications
 sources:
-  - https://github.com/your-repo/argo-cd-app-of-apps-chart
+  - https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/chart
 license: Apache-2.0

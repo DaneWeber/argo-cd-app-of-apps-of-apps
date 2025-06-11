@@ -20,7 +20,7 @@ This Helm chart deploys a structured set of Argo CD Applications using the app-o
 To install the chart, use the following command:
 
 ```bash
-helm install <release-name> ./argo-cd-app-of-apps-chart
+helm install <release-name> ./chart
 ```
 
 Replace `<release-name>` with your desired release name.

@@ -25,8 +25,8 @@ jobs:
 
       - name: Render Helm templates
         run: |
-          helm dependency update ./argo-cd-app-of-apps-chart
-          helm template argo-cd-app-of-apps ./argo-cd-app-of-apps-chart \
+          helm dependency update ./chart
+          helm template argo-cd-app-of-apps ./chart \
             --output-dir argo-cd-rendered-manifests
 
       - name: Create Pull Request for rendered manifests
