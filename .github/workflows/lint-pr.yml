@@ -1,9 +1,9 @@
+---
 name: Lint and Validate Helm Chart
 
-on:
+on:  # yamllint disable-line rule:truthy
   pull_request:
-    paths:
-      - 'chart/**'
+    types: [synchronize, opened, reopened]
 
 jobs:
   lint:
@@ -11,23 +11,50 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for diffing with main
 
       - name: Set up Helm
         uses: azure/setup-helm@v4
 
-      - name: Install yq and yamllint
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.7.0
+
+      - name: Validate with yq
         env:
-          YAMLLINT_VERSION: 1.37.1
-          YQ_VERSION: v4.45.5
-        run: pip install yamllint==${YAMLLINT_VERSION} yq==${YQ_VERSION}
-
-      - name: Validate Chart.yaml
+          HELM_TEMPLATES_TO_IGNORE: ./chart/templates
         run: |
-          yq eval '.' ./chart/Chart.yaml
+          find . \( -name '*.yaml' -o -name '*.yml' \) \
+            ! -path "${HELM_TEMPLATES_TO_IGNORE}/*" | while read -r file; do
+            echo "::group::yq eval $file"
+            yq eval "$file"
+            echo "::endgroup::"
+          done
 
-      - name: Check for valid YAML in templates
+      - name: Lint with yamllint
         run: |
-          find ./chart/templates -name '*.yaml' -exec yamllint {} +
+          yamllint .
+          yamllint --list-files .
 
       - name: Lint Helm chart
         run: helm lint ./chart
+
+      - name: Run chart-testing (list-changed)
+        id: list-changed
+        run: |
+          changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
+          if [[ -n "$changed" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run chart-testing (lint)
+        if: steps.list-changed.outputs.changed == 'true'
+        run: ct lint --target-branch ${{ github.event.repository.default_branch }}
+
+      - name: Create kind cluster
+        if: steps.list-changed.outputs.changed == 'true'
+        uses: helm/kind-action@v1.12.0
+
+      - name: Run chart-testing (install)
+        if: steps.list-changed.outputs.changed == 'true'
+        run: ct install --target-branch ${{ github.event.repository.default_branch }}

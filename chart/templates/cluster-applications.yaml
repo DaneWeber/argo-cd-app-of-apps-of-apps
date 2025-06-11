@@ -1,3 +1,5 @@
+# yamllint disable-file
+# This file is not valid YAML because it is a template
 {{- range .Values.projects }}
   {{- $project := . }}
   {{- range .clusters }}

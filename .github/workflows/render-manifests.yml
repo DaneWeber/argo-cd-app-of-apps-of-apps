@@ -1,6 +1,7 @@
+---
 name: Render Argo CD Manifests
 
-on:
+on:  # yamllint disable-line rule:truthy
   push:
     branches:
       - main
@@ -36,7 +37,9 @@ jobs:
           commit-message: "Update rendered Argo CD manifests"
           branch: update/rendered-manifests-${{ github.sha }}
           title: "Update rendered Argo CD manifests - ${{ github.sha }}"
-          body: "This PR updates the rendered Argo CD manifests based on the latest changes."
+          body: >
+            This PR updates the rendered Argo CD manifests
+            based on the latest changes.
           add-paths: rendered-manifests
 
       - name: Upload rendered manifests as artifact

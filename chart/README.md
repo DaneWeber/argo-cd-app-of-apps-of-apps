@@ -41,3 +41,7 @@ After installation, the root Application will manage the specified child Applica
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
+
+## GenAI
+
+Note that all of the above was generated with GitHub Copilot.

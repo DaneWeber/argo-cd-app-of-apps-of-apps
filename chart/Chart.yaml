@@ -1,3 +1,5 @@
+---
+apiVersion: v2
 name: argo-cd-app-of-apps-chart
 version: 0.1.0
 description: A Helm chart to manage Argo CD Applications using the app-of-apps pattern.
@@ -11,4 +13,4 @@ keywords:
   - applications
 sources:
   - https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/chart
-license: Apache-2.0
+icon: https://raw.githubusercontent.com/DaneWeber/argo-cd-app-of-apps-of-apps/main/chart/icon.svg
