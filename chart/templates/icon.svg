@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three concentric circles around the letter A -->
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#1976d2" stroke-width="3"/>
+  <circle cx="60" cy="60" r="38" fill="none" stroke="#1976d2" stroke-width="3"/>
+  <circle cx="60" cy="60" r="26" fill="none" stroke="#1976d2" stroke-width="3"/>
+  <!-- Letter A in the center -->
+  <text x="60" y="75" text-anchor="middle" font-size="48" font-family="Arial, Helvetica, sans-serif" fill="#1976d2" font-weight="bold">A</text>
+</svg>
