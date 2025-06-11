@@ -1,8 +1,9 @@
+---
 name: Lint and Validate Helm Chart
 
 on:
   pull_request:
-    types: [synchronize, opened, reopened] 
+    types: [synchronize, opened, reopened]
 
 jobs:
   lint:
@@ -20,7 +21,8 @@ jobs:
           YQ_VERSION: v4.45.4
         run: |
           pip install yamllint==${YAMLLINT_VERSION}
-          wget https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -O /usr/local/bin/yq
+          wget https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 \
+            -O /usr/local/bin/yq
           chmod +x /usr/local/bin/yq
 
       - name: Validate with yq
