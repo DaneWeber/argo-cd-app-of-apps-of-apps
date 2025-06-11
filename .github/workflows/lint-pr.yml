@@ -17,7 +17,7 @@ jobs:
       - name: Install yq and yamllint
         env:
           YAMLLINT_VERSION: 1.37.1
-          YQ_VERSION: v3.4.3
+          YQ_VERSION: v4.45.4
         run: |
           pip install yamllint==${YAMLLINT_VERSION}
           wget https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -O /usr/local/bin/yq
