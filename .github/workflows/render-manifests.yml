@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'argo-cd-app-of-apps-chart/**'
+    paths-ignore:
+      - 'argo-cd-app-rendered-manifests/**'
 
 permissions:
   contents: write
