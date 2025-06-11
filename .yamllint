@@ -4,5 +4,5 @@ extends: default
 rules:
   line-length: disable
 
-ignore: |
-  ./chart/templates/*
+ignore:
+  - ./chart/templates/*
