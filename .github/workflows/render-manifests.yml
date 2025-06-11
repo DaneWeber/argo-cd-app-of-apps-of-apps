@@ -1,7 +1,7 @@
 ---
 name: Render Argo CD Manifests
 
-on:
+on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
