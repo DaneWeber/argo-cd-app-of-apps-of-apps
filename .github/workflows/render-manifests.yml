@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'argo-cd-app-rendered-manifests/**'
+      - 'rendered-manifests/**'
 
 permissions:
   contents: write
@@ -27,7 +27,7 @@ jobs:
         run: |
           helm dependency update ./chart
           helm template argo-cd-app-of-apps ./chart \
-            --output-dir argo-cd-rendered-manifests
+            --output-dir rendered-manifests
 
       - name: Create Pull Request for rendered manifests
         if: github.event_name == 'push'
@@ -37,10 +37,10 @@ jobs:
           branch: update/rendered-manifests-${{ github.sha }}
           title: "Update rendered Argo CD manifests - ${{ github.sha }}"
           body: "This PR updates the rendered Argo CD manifests based on the latest changes."
-          add-paths: argo-cd-rendered-manifests
+          add-paths: rendered-manifests
 
       - name: Upload rendered manifests as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: argo-cd-rendered-manifests
-          path: argo-cd-rendered-manifests
+          name: rendered-manifests
+          path: rendered-manifests
