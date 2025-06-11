@@ -16,22 +16,18 @@ jobs:
         uses: azure/setup-helm@v4
 
       - name: Install yq and yamllint
-        run: |
-          pip install yamllint==${YAMLLINT_VERSION}
-          wget https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -O /usr/local/bin/yq
-          chmod +x /usr/local/bin/yq
+        env:
+          YAMLLINT_VERSION: 1.37.1
+          YQ_VERSION: v4.45.5
+        run: pip install yamllint==${YAMLLINT_VERSION} yq==${YQ_VERSION}
 
       - name: Validate Chart.yaml
         run: |
           yq eval '.' ./chart/Chart.yaml
-        env:
-          YQ_VERSION: v4.43.1
 
       - name: Check for valid YAML in templates
         run: |
           find ./chart/templates -name '*.yaml' -exec yamllint {} +
-        env:
-          YAMLLINT_VERSION: 1.32.0
 
       - name: Lint Helm chart
         run: helm lint ./chart
