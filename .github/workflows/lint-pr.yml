@@ -28,7 +28,11 @@ jobs:
 
       - name: Validate with yq
         run: |
-          find . \( -name '*.yaml' -o -name '*.yml' \) -exec yq eval {} \;
+          find . \( -name '*.yaml' -o -name '*.yml' \) | while read -r file; do
+            echo "::group::yq eval $file"
+            yq eval "$file"
+            echo "::endgroup::"
+          done
 
       - name: Lint with yamllint
         run: |
