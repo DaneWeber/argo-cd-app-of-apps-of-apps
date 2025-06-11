@@ -31,8 +31,7 @@ jobs:
           find . \( -name '*.yaml' -o -name '*.yml' \) -exec yq eval {} \;
 
       - name: Lint with yamllint
-        run: |
-          find . \( -name '*.yaml' -o -name '*.yml' \) -exec yamllint {} \;
+        run: yamllint .
 
       - name: Lint Helm chart
         run: helm lint ./chart
