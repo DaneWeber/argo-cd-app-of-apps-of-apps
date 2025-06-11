@@ -28,10 +28,12 @@ jobs:
 
       - name: Validate with yq
         run: |
+          pwd
           find . -name '*.yaml' -o -name '*.yml' -exec yq eval {} +
 
       - name: Lint with yamllint
         run: |
+          pwd
           find . -name '*.yaml' -o -name '*.yml' -exec yamllint {} +
 
       - name: Lint Helm chart
