@@ -46,6 +46,9 @@ jobs:
         env:
           CT_CHART_DIRS: chart/charts/parent-chart
         run: |
+          pwd
+          ls ${{ env.CT_CHART_DIRS }}
+          ct list-changed --target-branch ${{ github.event.repository.default_branch }}
           changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
           if [[ -n "$changed" ]]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
