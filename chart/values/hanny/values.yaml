@@ -8,6 +8,6 @@ hanny:
       targetRevision: main
       path: applications
     - name: prod-east
-      namespace: cicd-gitops
+      namespace: cicd-gitops-prod
       targetRevision: main
       path: applications
