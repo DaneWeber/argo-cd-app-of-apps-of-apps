@@ -17,7 +17,7 @@ spec:
   source:
     repoURL: {{ $root.repoURL }}
     targetRevision: {{ $root.targetRevision }}
-    path: rendered-manifests/children/{{ $project.name }}/{{ .name }}/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/{{ $project.name }}/{{ .name }}/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
