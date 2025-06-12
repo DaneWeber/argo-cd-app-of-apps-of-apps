@@ -57,7 +57,7 @@ jobs:
       - name: Run chart-testing (lint)
         if: steps.list-changed.outputs.changed == 'true'
         env:
-          CT_CHART_DIRS: chart/charts/parent-chart,chart/charts/child-chart
+          CT_CHART_DIRS: chart/charts
         run: ct lint --target-branch ${{ github.event.repository.default_branch }}
 
       - name: Create kind cluster
@@ -66,6 +66,6 @@ jobs:
 
       - name: Run chart-testing (install)
         env:
-          CT_CHART_DIRS: chart/charts/parent-chart,chart/charts/child-chart
+          CT_CHART_DIRS: chart/charts
         if: steps.list-changed.outputs.changed == 'true'
         run: ct install --target-branch ${{ github.event.repository.default_branch }}
