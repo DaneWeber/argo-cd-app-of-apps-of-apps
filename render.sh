@@ -5,12 +5,6 @@ applications=$(find ./chart/values -type f \( -name "*.yaml" -o -name "*.yml" \)
 value_files=$(echo "$applications" | sed 's/^/-f /')
 helm template argo-cd-app-of-apps ./chart/charts/parent-chart -f ./chart/values.yaml $value_files --output-dir rendered-manifests
 
-# for chart in chart-a chart-b; do
-#   for env in dev prod staging; do
-#     helm template "$chart-$env" ./charts/$chart -f values/$env.yaml --output-dir rendered-manifests/$chart/$env
-#   done
-# done
-
 for application_yaml in $applications; do
   echo "Rendering application: $application_yaml"
   appname=$(basename $(dirname "$application_yaml"))
