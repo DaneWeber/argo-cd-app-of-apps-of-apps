@@ -4,7 +4,7 @@ hanny:
   repoURL: https://github.com/AD/cicd-exemplar-pipeline-manifests
   clusters:
     - name: devtest-east
-      namespace: cicd-gitops
+      namespace: cicd-gitops-devtest
       targetRevision: main
       path: applications
     - name: prod-east
