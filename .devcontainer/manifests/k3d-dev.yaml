@@ -1,3 +1,4 @@
+---
 # https://k3d.io/v5.4.1/usage/configfile/#all-options-example
 apiVersion: k3d.io/v1alpha5
 kind: Simple

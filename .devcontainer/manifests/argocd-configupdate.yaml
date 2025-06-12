@@ -6,13 +6,13 @@ metadata:
   namespace: argocd
 spec:
   clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
+    - group: '*'
+      kind: '*'
   destinations:
-  - namespace: '*'
-    server: '*'
+    - namespace: '*'
+      server: '*'
   sourceRepos:
-  - '*'
+    - '*'
   destinationServiceAccounts:
     - server: https://kubernetes.default.svc
       namespace: '*'
@@ -34,6 +34,6 @@ roleRef:
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: argocd-cluster-admin
-  namespace: kube-system
+  - kind: ServiceAccount
+    name: argocd-cluster-admin
+    namespace: kube-system
