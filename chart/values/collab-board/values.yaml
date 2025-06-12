@@ -1,21 +1,21 @@
 ---
-projects:
-  - name: collab-board
-    repoURL: https://github.com/example/collab-board-manifests
-    clusters:
-      - name: devtest-east
-        namespace: collab-board-gitops-devtest-east
-        targetRevision: main
-        path: applications/devtest 
-      - name: devtest-west
-        namespace: collab-board-gitops-devtest-west
-        targetRevision: main
-        path: applications/devtest 
-      - name: prod-east
-        namespace: collab-board-gitops-prod-east
-        targetRevision: main
-        path: applications/prod 
-      - name: prod-west
-        namespace: collab-board-gitops-prod-west
-        targetRevision: main
-        path: applications/prod 
+collab-board:
+  name: collab-board
+  repoURL: https://github.com/example/collab-board-manifests
+  clusters:
+    - name: devtest-east
+      namespace: collab-board-gitops-devtest-east
+      targetRevision: main
+      path: applications/devtest 
+    - name: devtest-west
+      namespace: collab-board-gitops-devtest-west
+      targetRevision: main
+      path: applications/devtest 
+    - name: prod-east
+      namespace: collab-board-gitops-prod-east
+      targetRevision: main
+      path: applications/prod 
+    - name: prod-west
+      namespace: collab-board-gitops-prod-west
+      targetRevision: main
+      path: applications/prod 

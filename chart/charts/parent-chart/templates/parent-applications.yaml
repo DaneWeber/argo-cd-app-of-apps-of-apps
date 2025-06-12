@@ -1,6 +1,7 @@
 {{- $root := .Values.root }}
-{{- $clusterAddresses := .Values.clusterAddresses }}
-{{- range .Values.projects }}
+{{- $clusterAddresses := $root.clusterAddresses }}
+{{- range .Values }}
+{{- if ne .name $root.name }}
   {{- $project := . }}
   {{- range .clusters }}
 ---
@@ -22,5 +23,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
+{{- end }}
 {{- end }}
 {{- end }}
