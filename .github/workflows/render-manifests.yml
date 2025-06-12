@@ -25,10 +25,7 @@ jobs:
         uses: azure/setup-helm@v4
 
       - name: Render Helm templates
-        run: |
-          helm dependency update ./chart
-          helm template argo-cd-app-of-apps ./chart \
-            --output-dir rendered-manifests
+        run: render.sh
 
       - name: Create Pull Request for rendered manifests
         if: github.event_name == 'push'

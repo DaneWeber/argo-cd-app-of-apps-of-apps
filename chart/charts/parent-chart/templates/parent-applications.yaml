@@ -1,0 +1,28 @@
+{{- $root := .Values.root }}
+{{- $clusterAddresses := $root.clusterAddresses }}
+{{- range .Values }}
+{{- if ne .name $root.name }}
+  {{- $project := . }}
+  {{- range .clusters }}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $project.name }}-{{ .name }}
+  namespace: {{ $root.namespace }}
+spec:
+  destination:
+    namespace: {{ .namespace }}
+    server: {{ index $clusterAddresses .name }}
+  source:
+    repoURL: {{ $root.repoURL }}
+    targetRevision: {{ $root.targetRevision }}
+    path: rendered-manifests/children/{{ $project.name }}/{{ .name }}/child-apps-in-other-namespaces/templates/child-application.yaml
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+{{- end }}
+{{- end }}
+{{- end }}

@@ -1,6 +1,6 @@
 ---
 apiVersion: v2
-name: argo-cd-app-of-apps-chart
+name: child-apps-in-other-namespaces
 version: 0.1.0
 description: A Helm chart to manage Argo CD Applications using the app-of-apps pattern.
 maintainers:
@@ -12,5 +12,5 @@ keywords:
   - helm
   - applications
 sources:
-  - https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/chart
+  - https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/chart/charts/child-chart
 icon: https://raw.githubusercontent.com/DaneWeber/argo-cd-app-of-apps-of-apps/main/chart/icon.svg

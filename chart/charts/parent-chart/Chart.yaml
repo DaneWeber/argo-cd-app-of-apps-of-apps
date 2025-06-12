@@ -1,0 +1,16 @@
+---
+apiVersion: v2
+name: argo-cd-app-of-apps-chart
+version: 0.1.0
+description: A Helm chart to manage Argo CD Applications using the app-of-apps pattern.
+maintainers:
+  - name: Dane Weber
+    email: DaneWeber@users.noreply.github.com
+keywords:
+  - argo-cd
+  - gitops
+  - helm
+  - applications
+sources:
+  - https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps/chart/charts/parent-chart
+icon: https://raw.githubusercontent.com/DaneWeber/argo-cd-app-of-apps-of-apps/main/chart/icon.svg

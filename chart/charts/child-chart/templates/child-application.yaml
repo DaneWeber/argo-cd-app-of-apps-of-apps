@@ -1,0 +1,29 @@
+{{- $root := .Values.root }}
+{{- range .Values }}
+  {{- if ne .name $root.name }}
+  {{- $project := . }}
+  {{- range .clusters }}
+  {{- if eq .name $.Values.only.cluster}}
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: {{ .namespace }}
+spec:
+  destination:
+    namespace: {{ .namespace }}
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: {{ $project.repoURL }}
+    targetRevision: {{ .targetRevision }}
+    path: {{ .path }}
+  project: {{ .project | default "default" }}
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+  {{- end }}
+  {{- end }}
+  {{- end }}
+{{- end }}

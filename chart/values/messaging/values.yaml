@@ -1,0 +1,21 @@
+---
+messaging:
+  name: messaging
+  repoURL: https://github.com/example/messaging-manifests
+  clusters:
+    - name: devtest-east
+      namespace: messaging-gitops-devtest-east
+      targetRevision: main
+      path: applications/devtest
+    - name: devtest-west
+      namespace: messaging-gitops-devtest-west
+      targetRevision: main
+      path: applications/devtest
+    - name: prod-east
+      namespace: messaging-gitops-prod-east
+      targetRevision: main
+      path: applications/prod
+    - name: prod-west
+      namespace: messaging-gitops-prod-west
+      targetRevision: main
+      path: applications/prod
