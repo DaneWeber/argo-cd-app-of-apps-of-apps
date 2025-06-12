@@ -25,7 +25,10 @@ jobs:
         uses: azure/setup-helm@v4
 
       - name: Render Helm templates
-        run: render.sh
+        run: |
+          pwd
+          ls
+          ./render.sh
 
       - name: Create Pull Request for rendered manifests
         if: github.event_name == 'push'
