@@ -37,7 +37,9 @@ jobs:
           yamllint --list-files .
 
       - name: Lint Helm chart
-        run: helm lint ./chart/charts/parent-chart
+        run: |
+          helm lint ./chart/charts/parent-chart
+          helm lint ./chart/charts/child-chart
 
       - name: Run chart-testing (list-changed)
         id: list-changed
