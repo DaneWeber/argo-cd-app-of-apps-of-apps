@@ -1,4 +1,5 @@
 {{- $root := .Values.root }}
+{{- $clusterAddresses := .Values.clusterAddresses }}
 {{- range .Values.projects }}
   {{- $project := . }}
   {{- range .clusters }}
@@ -11,7 +12,7 @@ metadata:
 spec:
   destination:
     namespace: {{ .namespace }}
-    server: {{ .server }}
+    server: {{ index $clusterAddresses .name }}
   source:
     repoURL: {{ $root.repoURL }}
     targetRevision: {{ $root.targetRevision }}
