@@ -2,69 +2,87 @@
 # Default configuration values for the Argo CD App-of-Apps Helm chart
 
 root:
-  name: root-application
-  namespace: platform-gitops
-  project: default
-  source:
-    repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
-    targetRevision: HEAD
-    path: chart/root-application
+  namespace: argocd
+  repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
+  targetRevision: main
+
+cluster-addresses:
+  - name: devtest-east
+    server: &devtest-east 'https://kubernetes.default.svc'
+  - name: devtest-west
+    server: &devtest-west 'https://kubernetes.default.svc'
+  - name: prod-east
+    server: &prod-east 'https://kubernetes.default.svc'
+  - name: prod-west
+    server: &prod-west 'https://kubernetes.default.svc'
 
 projects:
   - name: collab-board
     repoURL: https://github.com/example/collab-board-manifests
     clusters:
       - name: devtest-east
+        server: *devtest-east
         namespace: collab-board-gitops-devtest-east
-        autoSync: true
         targetRevision: main
+        path: applications/devtest 
       - name: devtest-west
+        server: *devtest-west
         namespace: collab-board-gitops-devtest-west
-        autoSync: true
         targetRevision: main
+        path: applications/devtest 
       - name: prod-east
+        server: *prod-east
         namespace: collab-board-gitops-prod-east
-        autoSync: false
         targetRevision: main
+        path: applications/prod 
       - name: prod-west
+        server: *prod-west
         namespace: collab-board-gitops-prod-west
-        autoSync: false
         targetRevision: main
+        path: applications/prod 
   - name: messaging
     repoURL: https://github.com/example/messaging-manifests
     clusters:
       - name: devtest-east
+        server: *devtest-east
         namespace: messaging-gitops-devtest-east
-        autoSync: true
         targetRevision: main
+        path: applications/devtest
       - name: devtest-west
+        server: *devtest-west
         namespace: messaging-gitops-devtest-west
-        autoSync: true
         targetRevision: main
+        path: applications/devtest
       - name: prod-east
+        server: *prod-east
         namespace: messaging-gitops-prod-east
-        autoSync: false
         targetRevision: main
+        path: applications/prod
       - name: prod-west
+        server: *prod-west
         namespace: messaging-gitops-prod-west
-        autoSync: false
         targetRevision: main
+        path: applications/prod
   - name: case-management
     repoURL: https://github.com/example/case-management-manifests
     clusters:
       - name: devtest-east
+        server: *devtest-east
         namespace: case-management-gitops-devtest-east
-        autoSync: true
         targetRevision: main
+        path: applications/devtest
       - name: devtest-west
+        server: *devtest-west
         namespace: case-management-gitops-devtest-west
-        autoSync: true
         targetRevision: main
+        path: applications/devtest
       - name: prod-east
+        server: *prod-east
         namespace: case-management-gitops-prod-east
-        autoSync: false
         targetRevision: main
+        path: applications/prod
       - name: prod-west
+        server: *prod-west
         namespace: case-management-gitops-prod-west
-        autoSync: false
         targetRevision: main
+        path: applications/prod

@@ -1,3 +1,4 @@
+{{- $root := .Values.root }}
 {{- range .Values.projects }}
   {{- $project := . }}
   {{- range .clusters }}
@@ -6,21 +7,19 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ $project.name }}-{{ .name }}
-  namespace: platform-gitops
+  namespace: {{ $root.namespace }}
 spec:
   destination:
-    name: {{ .name }}
-    namespace: {{ $project.name }}
+    namespace: {{ .namespace }}
+    server: {{ .server }}
   source:
-    repoURL: {{ $project.repoURL }}
-    targetRevision: {{ .targetRevision }}
-    path: .
-  project: {{ $project.name }}
+    repoURL: {{ $root.repoURL }}
+    targetRevision: {{ $root.targetRevision }}
+    path: rendered-manifests/{{ $project.name }}/{{ .name }}
+  project: default
   syncPolicy:
-    {{- if .autoSync }}
     automated:
-      prune: true
+      prune: false
       selfHeal: true
-    {{- end }}
 {{- end }}
 {{- end }}
