@@ -1,0 +1,13 @@
+---
+hanny:
+  name: hanny
+  repoURL: https://github.com/AD/cicd-exemplar-pipeline-manifests
+  clusters:
+    - name: devtest-east
+      namespace: cicd-gitops
+      targetRevision: main
+      path: applications
+    - name: prod-east
+      namespace: cicd-gitops
+      targetRevision: main
+      path: applications
