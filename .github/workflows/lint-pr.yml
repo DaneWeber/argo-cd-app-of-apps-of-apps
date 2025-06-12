@@ -22,7 +22,7 @@ jobs:
 
       - name: Validate with yq
         env:
-          HELM_TEMPLATES_TO_IGNORE: ./chart/templates
+          HELM_TEMPLATES_TO_IGNORE: ./chart/charts
         run: |
           find . \( -name '*.yaml' -o -name '*.yml' \) \
             ! -path "${HELM_TEMPLATES_TO_IGNORE}/*" | while read -r file; do
