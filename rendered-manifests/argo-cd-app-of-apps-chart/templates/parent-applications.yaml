@@ -18,8 +18,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -40,8 +38,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -62,8 +58,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -84,8 +78,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -106,8 +98,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -128,8 +118,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -150,8 +138,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -172,8 +158,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -194,8 +178,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -216,8 +198,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -238,8 +218,6 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 ---
 # Source: argo-cd-app-of-apps-chart/templates/parent-applications.yaml
 apiVersion: argoproj.io/v1alpha1
@@ -260,5 +238,3 @@ spec:
     automated:
       prune: false
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
