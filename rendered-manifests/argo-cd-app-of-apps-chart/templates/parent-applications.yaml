@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/case-management/devtest-east/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/case-management/devtest-east/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -32,7 +32,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/case-management/devtest-west/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/case-management/devtest-west/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -52,7 +52,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/case-management/prod-east/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/case-management/prod-east/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -72,7 +72,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/case-management/prod-west/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/case-management/prod-west/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -92,7 +92,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/collab-board/devtest-east/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/collab-board/devtest-east/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -112,7 +112,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/collab-board/devtest-west/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/collab-board/devtest-west/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -132,7 +132,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/collab-board/prod-east/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/collab-board/prod-east/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -152,7 +152,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/collab-board/prod-west/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/collab-board/prod-west/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -172,7 +172,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/messaging/devtest-east/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/messaging/devtest-east/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -192,7 +192,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/messaging/devtest-west/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/messaging/devtest-west/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -212,7 +212,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/messaging/prod-east/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/messaging/prod-east/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
@@ -232,7 +232,7 @@ spec:
   source:
     repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
     targetRevision: main
-    path: rendered-manifests/children/messaging/prod-west/child-apps-in-other-namespaces/templates/child-application.yaml
+    path: rendered-manifests/children/messaging/prod-west/child-apps-in-other-namespaces/templates
   project: default
   syncPolicy:
     automated:
