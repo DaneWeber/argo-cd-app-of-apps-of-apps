@@ -8,7 +8,9 @@ echo "post-start start" >>  ~/.status.log
 k3d kubeconfig merge dev --kubeconfig-merge-default | tee -a ~/.status.log 
 
 # Update the repo for the workshop
-bash .devcontainer/scripts/update-repo-for-workshop.sh | tee -a  ~/.status.log 
+
+# DANE: This script looks like it needs to run in a GitHub Codespace, so I'm going to comment it out for now.
+# bash .devcontainer/scripts/update-repo-for-workshop.sh | tee -a  ~/.status.log 
 
 # Wit for Argo CD to be ready
 kubectl rollout status -n argocd sts/argocd-application-controller | tee -a  ~/.status.log
@@ -34,7 +36,9 @@ argocd login --insecure --username ${argouser:=admin} --password ${argopass} --g
 argocd account --insecure update-password --insecure --current-password ${argopass} --new-password ${argonewpass} | tee -a  ~/.status.log 
 
 # Patch URL value. Probably can do this via helm in the "post-create.sh" script. PRs are welcome
-kubectl patch cm/argocd-cm -n argocd --type=json  -p="[{\"op\": \"replace\", \"path\": \"/data/url\", \"value\":\"https://${CODESPACE_NAME}-30179.app.github.dev\"}]" | tee -a  ~/.status.log
+
+# DANE: I expect this to fail when running locally, so I'm going to see what I get without it.
+# kubectl patch cm/argocd-cm -n argocd --type=json  -p="[{\"op\": \"replace\", \"path\": \"/data/url\", \"value\":\"https://${CODESPACE_NAME}-30179.app.github.dev\"}]" | tee -a  ~/.status.log
 
 # Update Argo CD to use cluster-admin service account for sync operations in the "default" project
 kubectl apply -f .devcontainer/manifests/argocd-configupdate.yaml | tee -a  ~/.status.log
