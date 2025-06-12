@@ -44,7 +44,7 @@ jobs:
       - name: Run chart-testing (list-changed)
         id: list-changed
         env:
-          CT_CHART_DIRS: chart/charts/parent-chart,chart/charts/child-chart
+          CT_CHART_DIRS: chart/charts/parent-chart
         run: |
           changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
           if [[ -n "$changed" ]]; then
