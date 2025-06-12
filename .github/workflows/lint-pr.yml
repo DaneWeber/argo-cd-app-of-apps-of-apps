@@ -44,7 +44,7 @@ jobs:
       - name: Run chart-testing (list-changed)
         id: list-changed
         env:
-          CT_CHART_DIRS: chart/charts/parent-chart
+          CT_CHART_DIRS: chart/charts
         run: |
           pwd
           ls ${{ env.CT_CHART_DIRS }}
