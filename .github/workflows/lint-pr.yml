@@ -7,6 +7,8 @@ on:  # yamllint disable-line rule:truthy
 
 jobs:
   lint:
+    env:
+      CT_CHART_DIRS: chart/charts
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -37,12 +39,12 @@ jobs:
           yamllint --list-files .
 
       - name: Lint Helm chart
-        run: helm lint ./chart/charts/parent-chart
+        run: |
+          helm lint ./chart/charts/parent-chart
+          helm lint ./chart/charts/child-chart
 
       - name: Run chart-testing (list-changed)
         id: list-changed
-        env:
-          CT_CHART_DIRS: chart/charts/parent-chart,chart/charts/child-chart
         run: |
           changed=$(ct list-changed --target-branch ${{ github.event.repository.default_branch }})
           if [[ -n "$changed" ]]; then
@@ -51,8 +53,6 @@ jobs:
 
       - name: Run chart-testing (lint)
         if: steps.list-changed.outputs.changed == 'true'
-        env:
-          CT_CHART_DIRS: chart/charts/parent-chart,chart/charts/child-chart
         run: ct lint --target-branch ${{ github.event.repository.default_branch }}
 
       - name: Create kind cluster
@@ -60,7 +60,5 @@ jobs:
         uses: helm/kind-action@v1.12.0
 
       - name: Run chart-testing (install)
-        env:
-          CT_CHART_DIRS: chart/charts/parent-chart,chart/charts/child-chart
         if: steps.list-changed.outputs.changed == 'true'
         run: ct install --target-branch ${{ github.event.repository.default_branch }}
