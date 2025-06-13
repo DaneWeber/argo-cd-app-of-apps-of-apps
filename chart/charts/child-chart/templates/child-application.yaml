@@ -23,6 +23,7 @@ spec:
     automated:
       prune: false
       selfHeal: true
+      allowEmpty: false
   {{- end }}
   {{- end }}
   {{- end }}
