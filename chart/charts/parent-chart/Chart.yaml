@@ -4,7 +4,7 @@ name: argo-cd-app-of-apps-chart
 version: 0.1.2
 description: A Helm chart to manage Argo CD Applications using the app-of-apps pattern.
 maintainers:
-  - name: AngelEngine
+  - name: FeedbackLoopEngineering
     email: DaneWeber@users.noreply.github.com
 keywords:
   - argo-cd
