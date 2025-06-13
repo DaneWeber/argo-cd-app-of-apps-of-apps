@@ -6,6 +6,7 @@ description: A Helm chart to manage Argo CD Applications using the app-of-apps p
 maintainers:
   - name: Dane Weber
     email: DaneWeber@users.noreply.github.com
+    url: https://github.com/DaneWeber
 keywords:
   - argo-cd
   - gitops
