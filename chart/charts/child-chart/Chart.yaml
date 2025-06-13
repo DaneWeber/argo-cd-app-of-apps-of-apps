@@ -4,9 +4,8 @@ name: child-apps-in-other-namespaces
 version: 0.1.2
 description: A Helm chart to manage Argo CD Applications using the app-of-apps pattern.
 maintainers:
-  - name: Dane Weber
+  - name: AngelEngine
     email: DaneWeber@users.noreply.github.com
-    url: https://github.com/DaneWeber
 keywords:
   - argo-cd
   - gitops
