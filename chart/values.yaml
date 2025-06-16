@@ -7,7 +7,8 @@ root:
   repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
   targetRevision: main
   clusterAddresses:
-    devtest-east: 'https://kubernetes.default.svc'
-    devtest-west: 'https://kubernetes.default.svc'
-    prod-east: 'https://kubernetes.default.svc'
-    prod-west: 'https://kubernetes.default.svc'
+    platform: 'https://172.17.0.2:6551'
+    devtest-east: 'https://172.17.0.2:6552'
+    devtest-west: 'https://172.17.0.2:6562'
+    prod-east: 'https://172.17.0.2:6553'
+    prod-west: 'https://172.17.0.2:6563'
