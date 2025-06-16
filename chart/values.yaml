@@ -4,7 +4,7 @@
 root:
   name: root-values
   namespace: argocd
-  repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps
+  repoURL: https://github.com/DaneWeber/argo-cd-app-of-apps-of-apps-rendered
   targetRevision: main
   clusterAddresses:
     platform: 'https://172.17.0.2:6551'
