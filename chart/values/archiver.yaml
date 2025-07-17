@@ -1,6 +1,6 @@
 ---
 archiver:
-  name: archiver
+    name: archiver
   repoURL: https://github.com/DaneWeber/gitops-masterclass-applications
   clusters:
     - name: devtest-east
