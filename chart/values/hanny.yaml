@@ -7,7 +7,3 @@ hanny:
       namespace: cicd-gitops-devtest
       targetRevision: main
       path: applications
-    - name: prod-east
-      namespace: cicd-gitops-prod
-      targetRevision: main
-      path: applications
